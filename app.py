@@ -3,9 +3,11 @@ import os
 import subprocess
 
 from flask import Flask, request
+from flask_cors import CORS
 from steiner import STP
 
 app = Flask(__name__)
+CORS(app) # TODO later do cors for only the domain
 
 SCIP_JACK_PATH = os.getenv('SCIP_JACK_PATH')
 if SCIP_JACK_PATH is None:
@@ -14,7 +16,7 @@ if SCIP_JACK_PATH is None:
 stp = STP()
 
 
-@app.route('/api/stp/')
+@app.post('/api/stp/')
 def solve_stp():
     # extract from the request body the list of terminal_ids
     terminal_ids = request.json['terminal_ids']
@@ -32,7 +34,6 @@ def solve_stp():
     response = app.response_class(response=json.dumps(both),
                                   status=200,
                                   mimetype='application/json')
-    response.headers.add('Access-Control-Allow-Origin', '*') # todo later change to only allow from our domain
     return response
 
 
