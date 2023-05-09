@@ -1,0 +1,3 @@
+[submodule "external/skilltree"]
+	path = external/skilltree
+	url = https://github.com/grindinggear/skilltree-export
