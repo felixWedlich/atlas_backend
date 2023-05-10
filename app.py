@@ -28,10 +28,12 @@ def solve_stp():
         stderr=subprocess.DEVNULL)
     solution_filepath = stp_filepath.replace(".stp",".stplog")
     travel_nodes = stp.read_stp_solution(solution_filepath)
-    both = terminal_ids + travel_nodes
-
+    body = {
+        "terminal_ids": terminal_ids,
+        "travel_nodes": travel_nodes,
+    }
     # create a response object with both nodes
-    response = app.response_class(response=json.dumps(both),
+    response = app.response_class(response=json.dumps(body),
                                   status=200,
                                   mimetype='application/json')
     return response
