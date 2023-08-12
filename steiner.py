@@ -63,7 +63,7 @@ class STP:
 
     def __init__(self):
         # parse the atlas data json to generate the dictionaries that map enumeration to node and vice versa
-        with open('external/skilltree/data.json') as f:
+        with open('external/atlas/data.json') as f:
             self.atlas_graph = AtlasGraph(json.load(f))
 
         # check if the stp template already exists, else create it
