@@ -1,6 +1,3 @@
-[submodule "external/skilltree"]
-	path = external/skilltree
-	url = https://github.com/grindinggear/skilltree-export
 [submodule "external/atlas"]
 	path = external/atlas
 	url = https://github.com/grindinggear/atlastree-export
