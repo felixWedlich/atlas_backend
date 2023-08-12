@@ -124,25 +124,3 @@ class STP:
         matches = re.findall(pattern, final_solution)
 
         return list(map(lambda x: self.atlas_graph.enumeration_to_node[int(x)].identifier, matches))
-# def create_stp_file(stp: STPGraph, allocated_nodes: List[AtlasNode]):
-#     with open('atlas.stp', 'w') as f:
-#         f.write("33D32945 STP File, STP Format Version 1.0\n")
-#         f.write("SECTION Comment\n")
-#         f.write("Name    \"Atlas\"\n")
-#         f.write("Creator \"Sniixed\"\n")
-#         f.write("END\n")
-#         f.write("\n")
-#         f.write("SECTION Graph\n")
-#         f.write(f"Nodes {len(stp.nodes)}\n")
-#         f.write(f"Edges {len(stp.edges)}\n")
-#         for edge in stp.edges():
-#             f.write(f"E {edge[0].data._id + 1} {edge[1].data._id + 1} 1\n")
-#         f.write("END\n")
-#         f.write("\n")
-#         f.write("SECTION Terminals\n")
-#         f.write(f"Terminals {len(allocated_nodes)}\n")
-#         for node in allocated_nodes:
-#             f.write(f"T {enumerated_nodes[node.identifier] + 1}\n")
-#         f.write("END\n")
-#         f.write("\n")
-#         f.write("EOF\n")
